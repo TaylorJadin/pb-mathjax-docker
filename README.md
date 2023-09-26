@@ -33,7 +33,7 @@ docker-compose up -d
 ## Use it
 After a few minutes, visit your URL, and you should see "Welcome to PB MathJax" on the page. 
 
-Add a line to your the `wp-config.php` file for your Pressbooks install to point it to pb-mathjax-docker.
+Add a line to your the `wp-config.php` file for your Pressbooks install to point it to where you are hosting `pb-mathjax-docker`
 ```php
 define( 'PB_MATHJAX_URL', 'https://domain.com' );
 ```
