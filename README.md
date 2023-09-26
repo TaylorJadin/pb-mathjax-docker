@@ -43,7 +43,7 @@ define( 'PB_MATHJAX_URL', 'https://domain.com' );
 ## What else do I need to know?
 The `Dockerfile` is set up to use the latest LTS version of node. As I am writing this, this works well with `pb-mathjax` but in the future this might change. You can run any version of node by editing the first line in the `Dockerfile` and putting in a [suported tag from Docker Hub](https://hub.docker.com/_/node/).
 
-When you want to rebuild the image using a different version of node, or just update to the latest LTS of node, run the follwoing command:
+When you want to rebuild the image using a different version of node, or just update to the latest LTS of node, run this command:
 ```bash
 docker-compose up --build --force-recreate
 ```
