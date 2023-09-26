@@ -1,0 +1,33 @@
+version: '2'
+services:
+  pb-mathjax:
+    build: . 
+    environment:
+    - VIRTUAL_HOST=pb-mathjax.us.reclaim.cloud
+    - VIRTUAL_PORT=3000
+    - LETSENCRYPT_HOST=pb-mathjax.us.reclaim.cloud
+    - LETSENCRYPT_EMAIL=taylor@reclaimhosting.com
+    restart: unless-stopped
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - certs:/etc/nginx/certs:ro
+    - /etc/nginx/vhost.d
+    - /usr/share/nginx/html
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: ""
+    restart: unless-stopped
+  letsencrypt:
+    image: nginxproxy/acme-companion
+    volumes:
+      - certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - nginx-proxy
+    restart: unless-stopped
+volumes:
+  certs:
