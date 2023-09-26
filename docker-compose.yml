@@ -3,10 +3,10 @@ services:
   pb-mathjax:
     build: . 
     environment:
-    - VIRTUAL_HOST=pb-mathjax.us.reclaim.cloud
+    - VIRTUAL_HOST=${DOMAIN}
     - VIRTUAL_PORT=3000
-    - LETSENCRYPT_HOST=pb-mathjax.us.reclaim.cloud
-    - LETSENCRYPT_EMAIL=taylor@reclaimhosting.com
+    - LETSENCRYPT_HOST=${DOMAIN}
+    - LETSENCRYPT_EMAIL=${EMAIL}
     restart: unless-stopped
   nginx-proxy:
     image: nginxproxy/nginx-proxy
