@@ -1,5 +1,5 @@
 # pb-mathjax-docker
-A docker recipe to run pb-mathjax.
+A docker recipe to run [pb-mathjax](https://github.com/pressbooks/pb-mathjax).
 
 ## Requirements
 A docker host with a public IP addresss and domain name. This docker-compose setup is designed to automatically setup a Let's Encrypt certificate and will not work properly in situations where one cannot be issued.
